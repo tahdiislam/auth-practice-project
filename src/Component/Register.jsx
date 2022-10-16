@@ -20,7 +20,7 @@ const Register = () => {
             console.log('register', user);
          })
          .catch(error => {
-            console.error(error);
+            console.log(error);
          })
     } 
     return (
