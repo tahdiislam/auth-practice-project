@@ -17,11 +17,12 @@ const Header = () => {
         <div>
             <div className="navbar bg-primary text-primary-content">
                 <Link to='/' className="btn btn-ghost normal-case text-xl">Auth Int</Link>
-                    {/* <Link to='/home' className="btn btn-ghost normal-case text-xl"></Link> */}
-                    <Link to='register' className="btn btn-ghost normal-case text-lg font-medium">Register</Link>
-                    <Link to='login' className="btn btn-ghost normal-case text-lg font-medium">Login</Link>
+                    {user?.uid && <Link to='/home' className="btn btn-ghost normal-case text-lg font-medium">Home</Link>}
+                    {user?.uid && <Link to='/orders' className="btn btn-ghost normal-case text-lg font-medium">Orders</Link>}
+                    {!user?.uid && <Link to='register' className="btn btn-ghost normal-case text-lg font-medium">Register</Link>}
+                    {!user?.uid && <Link to='login' className="btn btn-ghost normal-case text-lg font-medium">Login</Link>}
+                    {user?.email && <span className='mx-4'>welcome {user.email}</span>}
                     {user?.email && <button onClick={handleSignOut}  className="btn btn-success">Sign out</button>}
-                {user?.email && <span className='ml-4'>welcome {user.email}</span>}
             </div>
         </div>
     );
